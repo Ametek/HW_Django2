@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Рецепт {{ meal }}</title>
+</head>
+<body>
+<h3>Количество ингредиентов на одну персону:</h3>
+{% for ingredient, amount in recipe.items %}
+    <p>{{ ingredient }}: {{ amount }}</p>
+{% empty %}
+    <p>Такого рецепта не знаю :(</p>
+{% endfor %}
+<p>Укажите количество порций:</p>
+{% for i in person %}
+    <a href="/{{ meal }}/?servings={{ i }}">{{ i }}</a>
+{% endfor %}
+<br><br>
+<a href="/">К выбору блюда</a>
+</body>
+</html>
